@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  WeatherViewController.swift
 //  Weather
 //
 //  Created by Nicholas Yoon on 10/30/17.
@@ -10,18 +10,16 @@ import UIKit
 
 import RxSwift
 
-final class ViewController: UIViewController {
+final class WeatherViewController: UIViewController {
     let bag = DisposeBag()
     let presenter = WeatherPresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         
         presenter.viewModel(forCity: "")
-            .subscribe(onNext: { print($0) })
+            .drive(onNext: { print($0) })
             .disposed(by: bag)
-        
     }
 }
 
