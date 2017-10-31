@@ -15,6 +15,7 @@
 		E1AA495D1FA815BF00B3624F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1AA495C1FA815BF00B3624F /* Assets.xcassets */; };
 		E1AA49601FA815BF00B3624F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AA495E1FA815BF00B3624F /* LaunchScreen.storyboard */; };
 		E1AA496B1FA815BF00B3624F /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AA496A1FA815BF00B3624F /* WeatherTests.swift */; };
+		E1AA49781FA81ED000B3624F /* URLSession+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AA49771FA81ED000B3624F /* URLSession+Rx.swift */; };
 		F4D4B7FA2143F385FCDE70D1 /* Pods_WeatherTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AD5A1F1B82AA34E8E65C57 /* Pods_WeatherTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,7 @@
 		E1AA49661FA815BF00B3624F /* WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AA496A1FA815BF00B3624F /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		E1AA496C1FA815BF00B3624F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E1AA49771FA81ED000B3624F /* URLSession+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 			children = (
 				E1AA49521FA815BF00B3624F /* AppDelegate.swift */,
 				E1AA49541FA815BF00B3624F /* ViewController.swift */,
+				E1AA49771FA81ED000B3624F /* URLSession+Rx.swift */,
 				E1AA49561FA815BF00B3624F /* Main.storyboard */,
 				E1AA495C1FA815BF00B3624F /* Assets.xcassets */,
 				E1AA495E1FA815BF00B3624F /* LaunchScreen.storyboard */,
@@ -356,6 +359,7 @@
 				E1AA495B1FA815BF00B3624F /* Weather.xcdatamodeld in Sources */,
 				E1AA49551FA815BF00B3624F /* ViewController.swift in Sources */,
 				E1AA49531FA815BF00B3624F /* AppDelegate.swift in Sources */,
+				E1AA49781FA81ED000B3624F /* URLSession+Rx.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
