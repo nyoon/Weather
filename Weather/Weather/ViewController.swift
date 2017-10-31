@@ -8,18 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+import RxSwift
+
+final class ViewController: UIViewController {
+    let bag = DisposeBag()
+    let presenter = WeatherPresenter()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        presenter.viewModel(forCity: "")
+            .subscribe(onNext: { print($0) })
+            .disposed(by: bag)
+        
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
 }
 

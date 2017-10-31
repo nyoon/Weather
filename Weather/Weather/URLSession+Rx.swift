@@ -8,14 +8,20 @@
 
 import RxSwift
 
+protocol DataProvidable {
+    func rx_response(request: URLRequest) -> Observable<Data>
+}
+
+extension URLSession: DataProvidable { }
+
 enum NetworkError: Error {
     case statusCode(code: Int)
 }
 
-extension Reactive where Base: URLSession {
-    public func response(request: URLRequest) -> Observable<Data> {
+extension URLSession {
+    func rx_response(request: URLRequest) -> Observable<Data> {
         return Observable.create { observer in
-            let task = self.base.dataTask(with: request) { (data, response, error) in
+            let task = self.dataTask(with: request) { (data, response, error) in
                 
                 if let error = error {
                     observer.onError(error)
