@@ -14,7 +14,10 @@ protocol CurrentWeatherInteractable {
 
 struct CurrentWeatherInteractor: CurrentWeatherInteractable {
     private struct Constants {
-        static let urlString = "http://samples.openweathermap.org/data/2.5/weather?q=London,uk&appid=b1b15e88fa797225412429c1c50c122a1"
+        static let scheme = "https"
+        static let host = "api.openweathermap.org"
+        static let path = "/data/2.5/weather"
+        static let apiKey = "6d7fda9d93b652f86761cd14c09d8635"
     }
     
     private let session: DataProvidable
@@ -24,7 +27,7 @@ struct CurrentWeatherInteractor: CurrentWeatherInteractable {
     }
     
     func fetchData(forCity city: String) -> Observable<WeatherDescriptor> {
-        guard let url = URL(string: Constants.urlString) else { return .never() }
+        guard let url = url(forCity: city) else { return .never() }
         let urlRequest = URLRequest(url: url)
         
         return session.rx_response(request: urlRequest)
@@ -35,5 +38,21 @@ struct CurrentWeatherInteractor: CurrentWeatherInteractable {
                 
                 return WeatherDescriptor(location: name, temperature: main.temperature, humidity: main.humidity, pressure: main.pressure)
             }
+    }
+
+    private func url(forCity city: String) -> URL? {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = Constants.scheme
+        urlComponents.host = Constants.host
+        urlComponents.path = Constants.path
+
+        let cityQuery = URLQueryItem(name: "q", value: city)
+        urlComponents.queryItems = [cityQuery]
+
+        let appIdQuery = URLQueryItem(name: "appId", value: Constants.apiKey)
+
+        urlComponents.queryItems = [cityQuery, appIdQuery]
+
+        return urlComponents.url
     }
 }

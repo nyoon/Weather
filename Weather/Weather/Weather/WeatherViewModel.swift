@@ -7,10 +7,10 @@
 //
 
 struct WeatherViewModel: Equatable {
-    private let location: String
-    private let temperature: String
-    private let humidity: String
-    private let pressure: String
+    let location: String
+    let temperature: String
+    let humidity: String
+    let pressure: String
     
     init(descriptor: WeatherDescriptor) {
         self.location = descriptor.location

@@ -16,13 +16,16 @@ struct WeatherPresenter {
         self.interactor = interactor
     }
     
-    func viewModel(forCity city: String) -> Driver<WeatherViewModel> {
-        return interactor.fetchData(forCity: city)
-            .asDriver(onErrorJustReturn: defaultWeatherDescriptor)
-            .map { WeatherViewModel(descriptor: $0) }
+    func viewModel(forCities cities: [String]) -> Driver<[WeatherViewModel]> {
+        return Observable
+            .from(cities.map { self.fetchViewModel(for: $0) })
+            .merge()
+            .toArray()
+            .asDriver(onErrorJustReturn: [])
     }
 
-    private var defaultWeatherDescriptor: WeatherDescriptor {
-        return WeatherDescriptor(location: "", temperature: 0, humidity: 0, pressure: 0)
+    private func fetchViewModel(for city: String) -> Observable<WeatherViewModel> {
+        return interactor.fetchData(forCity: city)
+            .map { WeatherViewModel(descriptor: $0) }
     }
 }
