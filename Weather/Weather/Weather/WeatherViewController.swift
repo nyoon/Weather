@@ -23,11 +23,17 @@ final class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        setup()
+        setupViews()
+        setupDataSource()
+    }
+    
+    private func setupViews() {
+        resultsTableView.rowHeight = 200
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(WeatherViewController.keyboardVisible(notification:)), name: .UIKeyboardWillShow, object: nil)
     }
 
-    private func setup() {
-        resultsTableView.rowHeight = 200
+    private func setupDataSource() {
 
         let searchResults = searchBar.rx.text.orEmpty
             .throttle(0.3, scheduler: MainScheduler.instance)
@@ -43,5 +49,20 @@ final class WeatherViewController: UIViewController {
                 cell.setup(for: viewModel)
             }
             .disposed(by: bag)
+    }
+    
+    @objc func keyboardVisible(notification: Notification) {
+        let userInfo = notification.userInfo!
+        
+        let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        
+        if notification.name == Notification.Name.UIKeyboardWillHide {
+            resultsTableView.contentInset = .zero
+        } else {
+            resultsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+        }
+        
+        resultsTableView.scrollIndicatorInsets = resultsTableView.contentInset
     }
 }
