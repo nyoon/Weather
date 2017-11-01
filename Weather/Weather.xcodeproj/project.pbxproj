@@ -20,6 +20,7 @@
 		E1276A351FA873460094A470 /* MockWeatherAPI.json in Resources */ = {isa = PBXBuildFile; fileRef = E1276A341FA873460094A470 /* MockWeatherAPI.json */; };
 		E1276A371FA878350094A470 /* MockURLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1276A361FA878350094A470 /* MockURLSession.swift */; };
 		E1276A391FA95C8A0094A470 /* WeatherViewModelSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1276A381FA95C8A0094A470 /* WeatherViewModelSpec.swift */; };
+		E1276A3B1FA960320094A470 /* WeatherRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1276A3A1FA960320094A470 /* WeatherRouter.swift */; };
 		E1AA49531FA815BF00B3624F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AA49521FA815BF00B3624F /* AppDelegate.swift */; };
 		E1AA49551FA815BF00B3624F /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1AA49541FA815BF00B3624F /* WeatherViewController.swift */; };
 		E1AA49581FA815BF00B3624F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E1AA49561FA815BF00B3624F /* Main.storyboard */; };
@@ -59,6 +60,7 @@
 		E1276A341FA873460094A470 /* MockWeatherAPI.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = MockWeatherAPI.json; sourceTree = "<group>"; };
 		E1276A361FA878350094A470 /* MockURLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockURLSession.swift; sourceTree = "<group>"; };
 		E1276A381FA95C8A0094A470 /* WeatherViewModelSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewModelSpec.swift; sourceTree = "<group>"; };
+		E1276A3A1FA960320094A470 /* WeatherRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRouter.swift; sourceTree = "<group>"; };
 		E1AA494F1FA815BF00B3624F /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1AA49521FA815BF00B3624F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E1AA49541FA815BF00B3624F /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				865D9C6F1FA91E0000A1BF14 /* WeatherTableViewCell.swift */,
 				E1276A2E1FA869FC0094A470 /* WeatherViewModel.swift */,
 				E1276A2C1FA869D60094A470 /* WeatherPresenter.swift */,
+				E1276A3A1FA960320094A470 /* WeatherRouter.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 				E1276A311FA86A5F0094A470 /* WeatherDescriptor.swift in Sources */,
 				E1AA49551FA815BF00B3624F /* WeatherViewController.swift in Sources */,
 				E1AA49531FA815BF00B3624F /* AppDelegate.swift in Sources */,
+				E1276A3B1FA960320094A470 /* WeatherRouter.swift in Sources */,
 				E1276A2F1FA869FC0094A470 /* WeatherViewModel.swift in Sources */,
 				E1276A2B1FA8632D0094A470 /* Weather.swift in Sources */,
 				E1AA49781FA81ED000B3624F /* URLSession+Rx.swift in Sources */,
