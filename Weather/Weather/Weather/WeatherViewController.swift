@@ -57,10 +57,13 @@ final class WeatherViewController: UIViewController {
         let keyboardScreenEndFrame = (userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
         let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
         
-        if notification.name == Notification.Name.UIKeyboardWillHide {
-            resultsTableView.contentInset = .zero
+        var edgeInset = UIEdgeInsets.zero
+        
+        if notification.name == .UIKeyboardWillHide {
+            resultsTableView.contentInset = edgeInset
         } else {
-            resultsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height, right: 0)
+            edgeInset.bottom = keyboardViewEndFrame.height
+            resultsTableView.contentInset = edgeInset
         }
         
         resultsTableView.scrollIndicatorInsets = resultsTableView.contentInset
