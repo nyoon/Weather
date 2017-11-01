@@ -28,7 +28,7 @@ final class WeatherPresenterSpec: QuickSpec {
 
                 it("should fetch data from the interactor") {
                     let sut = WeatherPresenter(interactor: mockCurrentWeatherInteractor)
-                    _ = sut.viewModel(forCity: "").drive()
+                    _ = sut.viewModel(forCities: [""]).drive()
 
                     expect(mockCurrentWeatherInteractor.fetchedData).to(beTrue())
                 }
@@ -36,10 +36,10 @@ final class WeatherPresenterSpec: QuickSpec {
                 it("should return the test view model's formatted properties") {
                     let sut = WeatherPresenter(interactor: mockCurrentWeatherInteractor)
 
-                    var captured: WeatherViewModel?
-                    let expected = WeatherViewModel(descriptor: descriptor)
+                    var captured: [WeatherViewModel]?
+                    let expected = [WeatherViewModel(descriptor: descriptor)]
 
-                    _ = sut.viewModel(forCity: "").drive(onNext: { captured = $0 })
+                    _ = sut.viewModel(forCities: ["Paris"]).drive(onNext: { captured = $0 })
 
                     expect(captured).to(equal(expected))
                 }
